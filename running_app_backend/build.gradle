@@ -1,0 +1,135 @@
+
+
+
+
+
+////////////////////////////////////////////////
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.7'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.running.app'
+version = '0.0.1-SNAPSHOT'
+description = 'Demo project for Spring Boot'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+/* 전체 의존성에서 Tomcat 제외는 여기(최상단)로 옮기면 DSL 경고를 피할 수 있어요 */
+configurations.all {
+    exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }                       
+}
+
+repositories {
+    mavenCentral()
+   
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-webflux') // Netty 기반
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
+
+   
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    compileOnly 'org.projectlombok:lombok'
+
+    // JWT
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+    // R2DBC 전용 드라이버 (반드시 필요)
+    runtimeOnly 'org.postgresql:r2dbc-postgresql'
+
+    // 👉 JDBC 드라이버는 JPA/Flyway 등 JDBC가 필요할 때만 두세요.
+    // runtimeOnly 'org.postgresql:postgresql'
+
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+
+
+
+
+//////////////////////////////////////////////////
+// plugins {
+// 	id 'java'
+// 	id 'org.springframework.boot' version '3.5.7'
+// 	id 'io.spring.dependency-management' version '1.1.7'
+// }
+
+// group = 'com.running.app'
+// version = '0.0.1-SNAPSHOT'
+// description = 'Demo project for Spring Boot'
+
+// java {
+// 	toolchain {
+// 		languageVersion = JavaLanguageVersion.of(17)
+// 	}
+// }
+
+// configurations {
+// 	compileOnly {
+// 		extendsFrom annotationProcessor
+// 	}
+// }
+
+// repositories {
+// 	mavenCentral()
+	
+// 	// PostGIS 라이브러리(JDBC)를 찾기 위한 OSGeo 저장소 추가 (필수)
+//     maven {
+//         url "https://repo.osgeo.org/repository/release/"
+//     }
+// 	//  PostGIS 라이브러리를 찾기 위해 JCenter를 추가합니다.
+//     jcenter()
+// }
+
+// dependencies {
+// 	implementation('org.springframework.boot:spring-boot-starter-webflux'){
+// 		// Tomcat을 제외하여 Netty 기반의 리액티브 서버가 실행되도록 강제합니다.
+//         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+// 	}
+// 	// Spring Boot가 WebFlux를 인식하도록 다른 모든 의존성에도 명시적 제외를 시도합니다.
+//     configurations.all {
+//         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+//     }
+// 	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+// 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+// 	implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
+//     implementation 'org.postgis:postgis-jdbc:3.3.0' // PostGIS 공간 데이터 타입을 Java 객체로 매핑하기 위해 추가
+	
+// 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+// 	compileOnly 'org.projectlombok:lombok'
+// 	runtimeOnly 'org.postgresql:postgresql'
+// 	runtimeOnly 'org.postgresql:r2dbc-postgresql'
+// 	annotationProcessor 'org.projectlombok:lombok'
+// 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+// 	testImplementation 'io.projectreactor:reactor-test'
+// 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+// }
+
+// tasks.named('test') {
+// 	useJUnitPlatform()
+// }

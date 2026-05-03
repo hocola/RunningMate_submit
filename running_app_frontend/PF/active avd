@@ -1,0 +1,10 @@
+개발할 때 입력 
+이건 AS AVD 연결 명령어임 
+
+npx react-native run-android
+
+.\gradlew.bat bootRun 임시 서버 명령어임
+
+https://console.cloud.google.com/google/maps-apis/credentials?project=crack-walker-477606-j4
+
+여기가서 송재현 계정 로그인 하면 구글지도 API 키 값 볼 수 있음 무료체험 91일 크레딧 등등 

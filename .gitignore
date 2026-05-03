@@ -1,0 +1,77 @@
+# ----------------------------------------------------------------
+# (0) 루트 레벨
+# ----------------------------------------------------------------
+node_modules/
+package-lock.json
+package.json
+nul
+
+# ----------------------------------------------------------------
+# (1) API 키 / 민감한 정보
+# ----------------------------------------------------------------
+# 'MyAwesomeProject' 폴더 안에 있는 .env 파일
+/running_app_frontend/MyAwesomeProject/.env
+/running_app_frontend/PF/.env
+
+# ----------------------------------------------------------------
+# (2) IDE 설정 및 불필요한 폴더
+# ----------------------------------------------------------------
+
+# Android Studio / IntelliJ IDE 설정 (frontend 폴더 레벨)
+/running_app_frontend/.idea/
+
+# React Native 의존성 폴더 (MyAwesomeProject 폴더 레벨)
+/running_app_frontend/MyAwesomeProject/node_modules/
+
+# VS Code 설정
+/running_app_frontend/MyAwesomeProject/.vscode/
+
+# Metro bundler 캐시
+/running_app_frontend/MyAwesomeProject/.bundle/
+
+# ----------------------------------------------------------------
+# (3) 빌드 산출물 (Android / iOS) - MyAwesomeProject 기준
+# ----------------------------------------------------------------
+
+# Android
+/running_app_frontend/MyAwesomeProject/android/build/
+/running_app_frontend/MyAwesomeProject/android/app/build/
+/running_app_frontend/MyAwesomeProject/android/.gradle/
+/running_app_frontend/MyAwesomeProject/android/app/src/main/assets/index.android.bundle
+
+# iOS
+/running_app_frontend/MyAwesomeProject/ios/build/
+/running_app_frontend/MyAwesomeProject/ios/Pods/
+
+# macOS 시스템 파일
+.DS_Store
+
+# 백엔드 관련
+/running_app_backend/node_modules/
+/running_app_backend/.env
+/running_app_backend/.gradle/
+/running_app_backend/build/
+/running_app_backend/bin/
+
+# ----------------------------------------------------------------
+# (4) 님이 보여주신 리스트의 나머지 항목들
+# ----------------------------------------------------------------
+/running_app_frontend/MyAwesomeProject/build/
+/running_app_frontend/MyAwesomeProject/local.properties
+/running_app_frontend/MyAwesomeProject/*.iml
+/running_app_frontend/MyAwesomeProject/*.hprof
+/running_app_frontend/MyAwesomeProject/.cxx/
+/running_app_frontend/MyAwesomeProject/*.keystore
+/running_app_frontend/MyAwesomeProject/.kotlin/
+/running_app_frontend/MyAwesomeProject/npm-debug.log
+/running_app_frontend/MyAwesomeProject/yarn-error.log
+/running_app_frontend/MyAwesomeProject/*.jsbundle
+/running_app_frontend/MyAwesomeProject/vendor/bundle/
+/running_app_frontend/MyAwesomeProject/.metro-health-check*
+/running_app_frontend/MyAwesomeProject/coverage/
+/running_app_frontend/MyAwesomeProject/.yarn/*
+!/running_app_frontend/MyAwesomeProject/.yarn/patches
+!/running_app_frontend/MyAwesomeProject/.yarn/plugins
+!/running_app_frontend/MyAwesomeProject/.yarn/releases
+!/running_app_frontend/MyAwesomeProject/.yarn/sdks
+!/running_app_frontend/MyAwesomeProject/.yarn/versions
