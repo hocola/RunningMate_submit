@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 러닝메이트 (Running Mate)
 
 **"멀리 있어도, 지금 이 순간 함께 달리자!"**
@@ -47,3 +48,6 @@
 ## 6. 라이선스 (License)
 
 이 프로젝트는 [MIT] 라이선스를 따릅니다.
+=======
+# RunningMate_submit
+>>>>>>> a69ebbec1b22530daa2cc6dd28b9c930e002b5b9
